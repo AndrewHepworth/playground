@@ -7,17 +7,22 @@
 #include <QFrame>
 #include <QUndoStack>
 #include <QUndoView>
+#include <QLineEdit>
+#include <QMenu>
+#include <QPushButton>
 
 #include "mainwindow.h"
 
-class UndoRedo
+class UndoRedo : public QObject
 {
+
+    Q_OBJECT
 public:
     UndoRedo();
 
     void createActions();
 
-    void createMenus();
+    void createMenus(QLineEdit *textBox, QPushButton *redoButton,QPushButton *undoButton);
 
     void createUndoView();
 
@@ -45,25 +50,29 @@ public:
 
     Ui::MainWindow *m_ui = nullptr;
 
+
     QUndoStack *undoStack = nullptr;
 
     QUndoView *undoView = nullptr;
 
 public slots:
-    void itemMoved(QFrame *movedDiagram, const QPointF &moveStartPosition);
+//    void itemMoved(QFrame *movedDiagram, const QPointF &moveStartPosition);
 
 private slots:
-    void deleteItem();
+    void printDebug();
 
-    void addBox();
+    void textHasChanged(QLineEdit *textBox, QString oldText);
+//    void deleteItem();
 
-    void addTriangle();
+//    void addBox();
 
-    void about();
+//    void addTriangle();
 
-    void itemMenuAboutToShow();
+//    void about();
 
-    void itemMenuAboutToHide();
+//    void itemMenuAboutToShow();
+
+//    void itemMenuAboutToHide();
 
 private:
 

@@ -3,6 +3,7 @@
 #include "Logger/debugger.h"
 #include "MapScaleWidget/mapscalewidget.h"
 #include "UndoRedo/undoredo.h"
+#include "diagram/diagramscene.h"
 
 
 #include <QUndoStack>
@@ -13,7 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    qDebug() << "HELLO";
+
+    editMenu = menuBar()->addMenu(tr("&Edit"));
 
     MapScaleWidget *scaleBar = new MapScaleWidget();
     scaleBar->Init(ui);
@@ -24,9 +26,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     undoRedo->createActions();
 
-    undoRedo->createMenus();
-
+    undoRedo->createMenus(this->ui->textEditor,this->ui->redoButton, this->ui->undoButton );
     undoRedo->createUndoView();
+
+
 
 
 

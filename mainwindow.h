@@ -17,5 +17,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    QMenu *editMenu;
 };
 #endif // MAINWINDOW_H
