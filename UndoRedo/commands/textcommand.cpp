@@ -6,7 +6,7 @@ TextCommand::TextCommand(QLineEdit *textBox,QString oldText, QUndoCommand *paren
     m_textBox = textBox;
     m_oldText = oldText;
     m_newText = textBox->text();
-    setText(QObject::tr("Old String: %1").arg(oldText));
+    setText(QObject::tr("String: %1").arg(oldText));
 }
 
 void TextCommand::undo()
@@ -19,6 +19,7 @@ void TextCommand::undo()
 
 void TextCommand::redo()
 {
+        qDebug("REDO!");
     m_textBox->setText(m_newText);
     m_textBox->update();
 }

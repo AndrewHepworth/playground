@@ -20,7 +20,7 @@ class UndoRedo : public QObject
 public:
     UndoRedo();
 
-    void createActions();
+    void createActions(QWidget *widget);
 
     void createMenus(QLineEdit *textBox, QPushButton *redoButton,QPushButton *undoButton);
 
@@ -62,6 +62,10 @@ private slots:
     void printDebug();
 
     void textHasChanged(QLineEdit *textBox, QString oldText);
+
+    void RedoActionButton();
+
+    void UndoActionButton();
 //    void deleteItem();
 
 //    void addBox();

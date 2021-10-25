@@ -24,10 +24,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     undoRedo->undoStack = new QUndoStack(this);
 
-    undoRedo->createActions();
+    undoRedo->createActions(this->ui->centralwidget);
 
     undoRedo->createMenus(this->ui->textEditor,this->ui->redoButton, this->ui->undoButton );
     undoRedo->createUndoView();
+
 
 
 
