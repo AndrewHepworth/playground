@@ -58,7 +58,7 @@ void UndoRedo::createMenus(QLineEdit *textBox, QPushButton *redoButton,QPushButt
 
     QString oldText = textBox->text();
 //    connect(textBox, SIGNAL(textEdited(QString)), this, SLOT(printDebug()));
-    QObject::connect(textBox, &QLineEdit::textEdited, [this, textBox, oldText](){textHasChanged(textBox, oldText);});
+    QObject::connect(textBox, &QLineEdit::textChanged, [this, textBox, oldText](){textHasChanged(textBox, oldText);});
 }
 
 void UndoRedo::printDebug()
